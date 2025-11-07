@@ -1,0 +1,135 @@
+/* --- 全局样式 --- */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background-color: #1a202c;
+  color: #e2e8f0;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 90%;
+  margin: 1rem auto;
+  padding: 1rem;
+  background-color: #2d3748;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input[type="text"] {
+  padding: 8px;
+  margin-right: 10px;
+  width: 300px;
+  background-color: #4a5568;
+  border: 1px solid #718096;
+  color: #e2e8f0;
+  border-radius: 4px;
+}
+
+button {
+  padding: 8px 12px;
+  cursor: pointer;
+  border: 1px solid #4a5568;
+  background-color: #3182ce;
+  color: white;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #2b6cb0;
+}
+
+hr {
+  border-color: #4a5568;
+}
+
+/* --- 导航栏样式 --- */
+.main-nav {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #2d3748;
+  border-bottom: 1px solid #4a5568;
+}
+.main-nav a {
+  color: #a0aec0;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.2s, color 0.2s;
+}
+.main-nav a:hover { background-color: #4a5568; color: #e2e8f0; }
+.main-nav a.active-link { color: #ffffff; background-color: #3182ce; }
+.user-info { margin-left: auto; display: flex; align-items: center; gap: 10px; color: #a0aec0; }
+.change-name-btn { padding: 4px 8px; font-size: 0.8em; background-color: #4a5568; }
+.change-name-btn:hover { background-color: #718096; }
+
+/* --- 个人工作室样式 --- */
+.studio-container { display: flex; height: calc(100vh - 120px); }
+.poem-list { width: 250px; border-right: 1px solid #4a5568; padding: 15px; overflow-y: auto; }
+.new-poem-btn { width: 100%; margin-bottom: 15px; }
+.poem-list ul { list-style: none; padding: 0; margin: 0; }
+.poem-list li { padding: 10px; border-radius: 5px; cursor: pointer; margin-bottom: 5px; }
+.poem-list li:hover { background-color: #4a5568; }
+.poem-list li.selected { background-color: #3182ce; color: white; }
+.poem-list li small { display: block; font-size: 0.75em; opacity: 0.7; margin-top: 5px; }
+.editor-area { flex-grow: 1; display: flex; flex-direction: column; padding: 20px; }
+.editor-title { font-size: 1.5em; font-weight: bold; border: none; background: none; color: #e2e8f0; margin-bottom: 15px; width: 100%; }
+.editor-content { flex-grow: 1; font-family: inherit; font-size: 1.1em; line-height: 1.6; background-color: #1a202c; color: #e2e8f0; border: 1px solid #4a5568; border-radius: 5px; padding: 15px; resize: none; }
+.editor-actions { margin-top: 15px; display: flex; gap: 10px; }
+.delete-btn { background-color: #c53030; }
+.delete-btn:hover { background-color: #9b2c2c; }
+.publish-btn { background-color: #2f855a; }
+.publish-btn:hover { background-color: #276749; }
+
+/* --- Pan & Zoom 布局 --- */
+.panzoom-viewport {
+  width: 100%;
+  height: calc(100vh - 170px);
+  overflow: hidden;
+  border-top: 1px solid #4a5568;
+  cursor: grab;
+}
+.panzoom-viewport:active { cursor: grabbing; }
+
+.poetry-forest {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 50px;
+  padding: 50px;
+  min-width: 100%;
+}
+.poetry-tree-container { position: relative; }
+
+/* --- 单个节点样式 --- */
+.node-display {
+  padding: 8px 15px;
+  background-color: rgba(45, 55, 72, 0.9);
+  border: 1px solid #718096;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.5s ease;
+  user-select: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 150px;
+  max-width: 350px;
+}
+.node-display:hover { transform: scale(1.05); box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+.node-display.clipped { border: 2px solid #f6e05e; box-shadow: 0 0 15px #f6e05e, 0 0 25px rgba(246, 224, 94, 0.5); transform: scale(1.1); }
+.clip-checkmark { position: absolute; top: -8px; right: -8px; background-color: #f6e05e; color: #1a202c; width: 20px; height: 20px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: bold; font-size: 14px; }
+
+/* --- 高亮/变暗样式 --- */
+.link { transition: opacity 0.5s ease; }
+.node-display.dimmed { opacity: 0.15; }
+.link.dimmed { opacity: 0.1; }

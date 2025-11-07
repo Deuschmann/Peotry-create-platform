@@ -1,0 +1,70 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #2d3748;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  border: 1px solid #4a5568;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #a0aec0;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.modal-poem-line p {
+  font-size: 1.8em;
+  color: #e2e8f0;
+  margin: 0;
+  padding: 20px 0;
+  border-bottom: 1px solid #4a5568;
+}
+
+.modal-author-info {
+  font-style: italic;
+  color: #a0aec0;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.modal-actions button {
+  padding: 10px 15px;
+  font-size: 0.9em;
+}
+
+.modal-actions button.delete {
+  background-color: #c53030;
+}
+
+.modal-actions button.delete:hover {
+  background-color: #9b2c2c;
+}
